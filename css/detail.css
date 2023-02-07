@@ -1,0 +1,46 @@
+.parentContent{
+    height: 100px;
+    line-height: 100px;
+    position: relative;
+ }
+ .sonContent{
+    display: inline-block;
+    line-height: 50px;
+    vertical-align: middle;
+ }
+ 
+ .btn-pass{
+   background-color: rgb(255, 255, 255);
+   color: rgb(20, 161, 161);
+ }
+.btn-pass:hover{
+   background-color:  rgb(59, 163, 116);
+   color: rgb(255, 255, 255);
+}
+.btn-pass:active{
+   background-color: rgb(66, 132, 105);
+   color: rgb(255, 255, 255);
+}
+
+ .btn-nopass{
+   background-color: rgb(255, 38, 0);
+   color: rgb(255, 255, 255);
+ }
+.btn-nopass:hover{
+   background-color: rgb(224, 41, 9);
+   color: rgb(255, 255, 255);
+}
+.btn-nopass:active{
+   background-color: rgb(210, 31, 0);
+   color: rgb(255, 255, 255);
+}
+
+
+ .main-container{
+   padding-left: 5%;
+   padding-right: 5%;
+   margin-top: 2%;
+ }
+ .item{
+   display: inline;
+ }

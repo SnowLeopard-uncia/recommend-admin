@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="admin sign in">
+  <meta name="author" content="zyw">
+  <meta name="generator" content="zyw 1.0.0">
+  <link rel="icon" href="./images/admin-icon.png">
+
+  <title>文章推荐系统管理端</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="./assets/dist/css/bootstrap.min.css">
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sidebars/">
+
+  <!-- Custom styles for this template -->
+
+  <link href="./css/audit.css" rel="stylesheet">
+  <link href="./css/admin.css" rel="stylesheet">
+  <link href="./css/detail.css" rel="stylesheet">
+
+  <script src="./js/jquery.min.js" type="text/javascript"></script>
+  <script src="./js/admin.js" type="text/javascript"></script>
+
+  <!-- 引入js包实现弹窗效果 -->
+  <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <!-- 顶部导航栏 -->
+    <nav class="navbar navbar-expand-md navbar-dark nav-define">
+      <div class="container-fluid">
+        <!-- logo -->
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <strong style="font-size: large; font-weight: 300; margin-left: 10px;">文章推荐系统管理端</strong>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <!-- 导航栏 -->
+
+          <ul class="navbar-nav  me-auto mb-2 mb-md-0 text-center">
+            <li class="nav-item">
+              <a class="nav-link audit active" aria-current="page" href="#" onclick="gotoAudit()">文章审核</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link articles" href="#" onclick="gotoArticles()">文章管理</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link feedback" href="#" onclick="gotoFeedback()">用户管理</a>
+            </li> -->
+          </ul>
+          <!-- 用户名 -->
+          <div class="nav-username"><a style="color: rgb(221, 221, 221); margin-left: 1rem;"
+              href="login.html"><small>前往登录</small></a></div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main" style="background-color:white;">
+    <!-- 审核 -->
+    <div id="mainContent" class="audit-block">
+      <!-- 侧边导航栏 -->
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <!-- <span style="padding-top: 10px; text-align: center;" class="d-block">文章审核</span>
+                <hr style="height: 1px; background-color:darkgray"> -->
+
+          <ul class="nav flex-column text-center nav-pills mb-auto nav-flush">
+            <li class="nav-item">
+              <a class="nav-link all active" aria-current="page" href="#" onclick="gotoAllArticles()">
+                全部文章
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link wait link-dark" href="#" onclick="gotoWaitAudit()">
+                待审核
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link audited link-dark" href="#" onclick="gotoAudited()">
+                已通过
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nopass link-dark" href="#" onclick="gotoNoPass()">
+                未通过
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+      <!-- <img src="../images/nopass.png" alt="twbs" width="100%" height="100%" style="overflow: hidden;"
+                      class="flex-shrink-0"> -->
+
+      <!-- 全部文章 -->
+      <!-- <div class="all-works content">
+        <div class="list-group" style="padding: 10px; margin-top: 10px;">
+          <div>
+            <span style="width: 70%; ">用户推荐的文章（包括已审核和待审核）</span>
+          </div>
+        </div> -->
+      <!-- 图片列表  all-articles-list-->
+
+      <!-- <div class="list-group all-articles-list"> -->
+      <!-- 在此插入 -->
+      <!-- 单条项目 -->
+      <!-- <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+              <div>
+                <h6 class="mb-0">文章标题</h6>
+                <small class="opacity-50 text-nowrap">创建时间</small>
+              </div>
+
+            </div>
+            <div class="auditType${i}" style="width: 10%;">
+              <div class="wait-for-audit">待审核</div>
+            </div>
+          </a>
+        </div> -->
+
+      <!-- 页码 -->
+      <!-- <nav aria-label="Page navigation example pageLink" style="float: right;">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <div class="page-list" style="display: flex;"></div>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div> -->
+
+      <!-- 待审核 -->
+      <div class="wait-audit content">
+        <div id="content">
+          <div class="list-group" style="padding: 10px; margin-top: 10px;">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+              <span style="width: 70%;">待审核推荐</span>
+              <div>
+                <input class="btn btn-nopass" type="button" style="margin-right: 10px;" value="不予通过"
+                  onclick="failWorksBatch()">
+                <input class="btn btn-pass" style="background-color: rgb(67, 158, 127); color: white;" type="button"
+                  value="审核通过" onclick="passArticlesBatch()">
+              </div>
+            </div>
+            <div>
+            </div>
+          </div>
+          <!-- 待审核推荐 -->
+          <div class="wait-articles-list">
+            <!-- 在此插入 -->
+            <div class="list-group item">
+              <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div class="d-flex gap-2 w-100 justify-content-between"
+                  onclick="window.location='detail.html?worksId=${list[i].works.worksId}&usersId=${usersId}&usersName=${usersName}'">
+                  <div>
+                    <h6 class="mb-0">文章标题</h6>
+                    <small class="opacity-50 text-nowrap">创建时间</small>
+                  </div>
+                </div>
+                <div class="check-box">
+                  <input type="checkbox" class="form-check-input" id="same-address" value="${list[i].works.worksId}">
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- 页码 -->
+          <nav aria-label="Page navigation example pageLink" style="float: right;">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <div class="page-list" style="display: flex;"></div>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- 已通过 -->
+      <!-- <div class="audited-block content">
+        <div id="content">
+          <div class="list-group" style="padding: 10px; margin-top: 10px;">
+            <div>
+              <span style="width: 70%; ">已通过审核</span>
+            </div>
+          </div> -->
+      <!-- 已通过推荐 -->
+      <!-- <div class="audited-works-list"> -->
+      <!-- 在此插入 -->
+      <!-- <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                  <div>
+                    <h6 class="mb-0">文章标题</h6>
+                    <small class="opacity-50 text-nowrap">创建时间</small>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div> -->
+      <!-- 页码 -->
+      <!-- <nav aria-label="Page navigation example pageLink" style="float: right;">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <div class="page-list" style="display: flex;"></div>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div> -->
+
+      <!-- 未通过 -->
+      <!-- <div class="no-pass content">
+        <div id="content">
+          <div class="list-group" style="padding: 10px; margin-top: 10px;">
+            <div>
+              <span style="width: 70%; ">未通过审核</span>
+            </div>
+          </div> -->
+      <!-- 未通过推荐 -->
+      <!-- <div class="failed-works-list"> -->
+      <!-- 在此插入 -->
+      <!-- <div class="list-group">
+              <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <div class="d-flex gap-2 w-100 justify-content-between">
+                  <div>
+                    <h6 class="mb-0">文章标题</h6>
+                    <small class="opacity-50 text-nowrap">创建时间</small>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div> -->
+      <!-- 页码 -->
+      <!-- <nav aria-label="Page navigation example pageLink" style="float: right;">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <div class="page-list" style="display: flex;"></div>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div> -->
+
+      <!-- <div style="clear: both;"></div> -->
+    </div>
+  </main>
+  <!-- 尾部 -->
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right" style="float: right;">
+        <a href="#"><svg t="1638282142720" class="icon" height="20" width="20" viewBox="0 0 1024 1024" version="1.1"
+            xmlns="http://www.w3.org/2000/svg" p-id="2257" width="200" height="200">
+            <path
+              d="M936.170667 669.952L534.613333 268.394667a32 32 0 0 0-42.986666-2.069334l-2.282667 2.069334L87.829333 669.952a8.533333 8.533333 0 0 0-2.496 6.037333v66.346667a8.533333 8.533333 0 0 0 14.570667 6.058667l412.074667-412.096 412.117333 412.096a8.533333 8.533333 0 0 0 14.570667-6.037334v-66.346666a8.533333 8.533333 0 0 0-2.496-6.058667z"
+              fill="#333333" p-id="2258"></path>
+          </svg></a>
+      </p>
+      <p class="mt-5 mb-3 text-muted footer">&copy; 2023 计算机科学技术文章推荐系统-管理端 All Rights Reserved</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

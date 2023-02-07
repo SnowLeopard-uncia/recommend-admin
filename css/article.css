@@ -1,0 +1,29 @@
+#article-mainContent{
+    margin: 0 auto;
+    /* text-align: center; */
+    
+  }
+  
+#content{
+    width: 85%;
+    float: right;
+  }
+.add-btn{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  
+}
+.input-box {
+    margin-top: 10px;
+    text-align: center;
+   border-color: inherit;
+  }
+  
+  .input-text {
+    margin: 0 auto;
+  }
+
+  .article-btn-group{
+    display: flex;
+    
+  }

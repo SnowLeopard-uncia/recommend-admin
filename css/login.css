@@ -1,0 +1,56 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  flex-direction: column; 
+  /* 垂直排列 */  
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-floating {
+  margin-bottom: 10px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-radius: 12px;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-radius: 12px;
+}
+
+.form-signin input[type="button"]{
+  margin-top: 20px;
+  background: #4a9394;
+  border-radius: 10px;
+  border-color: #ffffff00;
+}
+
+.footer {
+  color: grey;
+  font-size: xx-small;
+  font-weight: 300;
+}
